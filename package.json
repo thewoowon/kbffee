@@ -1,5 +1,5 @@
 {
-  "name": "Kbffee",
+  "name": "kbffee",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,8 +10,13 @@
     "test": "jest"
   },
   "dependencies": {
+    "add": "^2.0.6",
+    "axios": "^1.7.9",
     "react": "18.3.1",
-    "react-native": "0.75.4"
+    "react-native": "0.75.4",
+    "react-native-gesture-handler": "^2.23.1",
+    "react-native-reanimated": "^3.16.7",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
