@@ -1,10 +1,9 @@
 import React from 'react';
 import {SafeAreaView, StatusBar, StyleSheet, Text, View} from 'react-native';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
-const AlertScreen = () => {
+const DashboardScreen = () => {
   return (
-    <GestureHandlerRootView style={styles.container}>
+    <View style={styles.container}>
       <StatusBar
         barStyle="dark-content"
         backgroundColor="#6a51ae"
@@ -12,10 +11,10 @@ const AlertScreen = () => {
       />
       <SafeAreaView style={styles.backgroundStyle}>
         <View style={styles.container}>
-          <Text>Order Screen</Text>
+          <Text>Dashboard Screen</Text>
         </View>
       </SafeAreaView>
-    </GestureHandlerRootView>
+    </View>
   );
 };
 
@@ -28,4 +27,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AlertScreen;
+export default DashboardScreen;
