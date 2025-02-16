@@ -12,7 +12,12 @@ linkage = ENV['USE_FRAMEWORKS']
 if linkage != nil
   Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
   use_frameworks! :linkage => linkage.to_sym
+else
+  use_frameworks! :linkage => :static # ✅ Firebase를 정적 라이브러리로 사용
 end
+
+# ✅ Firebase 정적 라이브러리 사용을 위한 모듈 헤더 적용
+use_modular_headers!
 
 target 'Kbffee' do
   config = use_native_modules!
@@ -23,13 +28,22 @@ target 'Kbffee' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  # ✅ Firebase Firestore 및 Core 모듈 추가
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+
+  # ✅ 특정 Firebase 모듈을 모듈 헤더로 설정하여 Firestore 오류 방지
+  pod 'GoogleUtilities', :modular_headers => true
+  pod 'FirebaseCoreInternal', :modular_headers => true
+  pod 'FirebaseFirestoreInternal', :modular_headers => true
+  pod 'FirebaseCoreExtension', :modular_headers => true
+
   target 'KbffeeTests' do
     inherit! :complete
     # Pods for testing
   end
 
   post_install do |installer|
-    # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
     react_native_post_install(
       installer,
       config[:reactNativePath],
