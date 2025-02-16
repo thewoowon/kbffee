@@ -1,6 +1,7 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
+apply plugin: "com.google.gms.google-services"
 
 /**
  * This is the configuration block to customize your React Native Android app.
@@ -77,9 +78,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.kbffee"
+    namespace "com.thewoowon.kbffee"
     defaultConfig {
-        applicationId "com.kbffee"
+        applicationId "com.thewoowon.kbffee"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -116,4 +117,13 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    // ✅ Firebase BoM (Bill of Materials) 추가
+    implementation platform('com.google.firebase:firebase-bom:33.1.0')
+
+    // ✅ Firebase Analytics 추가 (기본적으로 사용됨)
+    implementation 'com.google.firebase:firebase-analytics'
+
+    // ✅ Firestore 추가 (Firestore를 사용할 경우)
+    implementation 'com.google.firebase:firebase-firestore'
 }

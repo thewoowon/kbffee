@@ -1,4 +1,4 @@
-package com.kbffee
+package com.thewoowon.kbffee
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity
