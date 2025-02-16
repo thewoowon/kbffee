@@ -11,6 +11,8 @@
     "start:clean": "ENVFILE=.env.development NODE_ENV=development react-native start --reset-cache"
   },
   "dependencies": {
+    "@react-native-firebase/app": "^21.10.0",
+    "@react-native-firebase/firestore": "^21.10.0",
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/native": "^7.0.14",
     "@react-navigation/stack": "^7.1.1",
