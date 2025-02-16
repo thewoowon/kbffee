@@ -77,3 +77,9 @@ yarn-error.log
 .env
 .env.local
 .env.*
+
+# firebase
+firebase.json
+firebase-debug.log
+/ios/*/GoogleService-Info.plist
+/android/*/google-services.json
